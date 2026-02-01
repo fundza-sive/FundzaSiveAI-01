@@ -1,33 +1,50 @@
-# EGCSE Physical Science Master Bot
-# Section: Physics - General Physics
+# FundzaSiveAI - EGCSE Physics Master Bot
+# Aligned with Syllabus 6888 (2024-2026)
 
-def calculate_density():
-    print("\n--- Density Calculator (ρ = m / V) ---")
-    m = float(input("Enter mass (kg): "))
-    v = float(input("Enter volume (m³): "))
-    density = m / v
-    print(f"The Density is {density} kg/m³")
+def general_physics_p1_p3():
+    print("\n--- [P1-P3: GENERAL PHYSICS] ---")
+    print("1. Density (ρ = m/V)")
+    print("2. Speed (v = d/t)")
+    print("3. Weight (W = m*g)")
+    print("4. Force (F = m*a)")
+    
+    choice = input("Select a calculation: ")
+    if choice == '1':
+        m = float(input("Enter Mass (kg): "))
+        v = float(input("Enter Volume (m³): "))
+        print(f"Density = {m/v} kg/m³")
+    elif choice == '2':
+        d = float(input("Enter Distance (m): "))
+        t = float(input("Enter Time (s): "))
+        print(f"Speed = {d/t} m/s")
+    elif choice == '3':
+        m = float(input("Enter Mass (kg): "))
+        g = 10 # Syllabus P2.0 states g = 10 m/s²
+        print(f"Weight = {m*g} N")
 
-def calculate_speed():
-    print("\n--- Speed Calculator (v = d / t) ---")
-    d = float(input("Enter distance (m): "))
-    t = float(input("Enter time (s): "))
-    speed = d / t
-    print(f"The Speed is {speed} m/s")
+def energy_work_power_p4():
+    print("\n--- [P4: WORK, ENERGY & POWER] ---")
+    print("1. Work Done (W = F*d)")
+    print("2. Power (P = W/t)")
+    print("3. Kinetic Energy (Ek = ½mv²)")
+    
+    choice = input("Select a calculation: ")
+    if choice == '1':
+        f = float(input("Enter Force (N): "))
+        d = float(input("Enter Distance (m): "))
+        print(f"Work Done = {f*d} Joules")
 
 def main_menu():
-    print("Welcome to FundzaSiveAI Physics Bot")
-    print("1. Calculate Density")
-    print("2. Calculate Speed")
-    print("3. Exit")
-    
-    choice = input("Select an option: ")
-    if choice == '1':
-        calculate_density()
-    elif choice == '2':
-        calculate_speed()
-    else:
-        print("Goodbye!")
+    while True:
+        print("\n--- EGCSE PHYSICS STUDY BOT ---")
+        print("A. General Physics (P1-P3)")
+        print("B. Work, Energy & Power (P4)")
+        print("X. Exit")
+        
+        choice = input("\nSelect Syllabus Section: ").upper()
+        if choice == 'A': general_physics_p1_p3()
+        elif choice == 'B': energy_work_power_p4()
+        elif choice == 'X': break
 
 if __name__ == "__main__":
     main_menu()
