@@ -1,67 +1,42 @@
-# FundzaSiveAI - EGCSE Physics FULL TUTOR BOT (6888 Syllabus)
+# FundzaSiveAI - EGCSE Physics FULL MASTER (P1-P13)
 import random
-import math
 
-def tutor_quiz(topic, formula, unit, question_text, correct_calc):
-    print(f"\n--- 📖 TUTOR MODE: {topic} ---")
-    print(f"Definition: {question_text}")
-    print(f"Formula: {formula} | Unit: {unit}")
-    
-    mode = input("\nChoose: (1) Calculate for me or (2) Quiz me: ")
-    if mode == '2':
-        # Simple quiz logic with random numbers
-        val1 = random.randint(5, 20)
-        val2 = random.randint(2, 10)
-        ans = round(correct_calc(val1, val2), 2)
-        print(f"\n📝 QUIZ: If we have values of {val1} and {val2}, what is the result?")
-        user_ans = float(input("Your answer: "))
-        if user_ans == ans:
-            print("✅ Correct! You've mastered this syllabus point.")
-        else:
-            print(f"❌ Not quite. The answer is {ans} {unit}. Keep practicing!")
-    return mode
-
-def main_menu():
+def physics_tutor():
     while True:
-        print("\n--- 🏫 FUNDZASIVE AI: PHYSICS TUTOR ---")
-        print("P1. General Physics (Density/Speed)")
-        print("P4. Energy & Work")
-        print("P5. Waves & Light")
-        print("P8. Electricity")
-        print("P11. Transformers")
+        print("\n--- 🏫 EGCSE PHYSICS MASTER TUTOR ---")
+        print("1. P1-P3: General Physics (Density/Speed/Force)")
+        print("2. P4: Work, Energy & Power")
+        print("3. P5: Waves & Light")
+        print("4. P6: Thermal Physics (Heat)")
+        print("5. P8-P10: Electricity & Circuits")
+        print("6. P12: Digital Electronics (Logic Gates)")
+        print("7. P13: Transformers")
         print("X. Exit")
-        
-        choice = input("\nSelect Section: ").upper()
-        
-        if choice == 'P1':
-            m = tutor_quiz("Density", "ρ = m/V", "kg/m³", "Density is mass per unit volume.", lambda x, y: x/y)
-            if m == '1':
-                mass = float(input("Enter Mass (kg): "))
-                vol = float(input("Enter Volume (m³): "))
-                print(f"Density = {mass/vol} kg/m³")
 
-        elif choice == 'P4':
-            m = tutor_quiz("Work Done", "W = F x d", "Joules", "Work is done when a force moves an object.", lambda x, y: x*y)
-            if m == '1':
-                f = float(input("Enter Force (N): "))
-                d = float(input("Enter Distance (m): "))
-                print(f"Work Done = {f*d} J")
+        choice = input("\nSelect Syllabus Section: ").upper()
 
-        elif choice == 'P5':
-            m = tutor_quiz("Wave Speed", "v = f x λ", "m/s", "Wave speed is frequency multiplied by wavelength.", lambda x, y: x*y)
-            if m == '1':
-                f = float(input("Enter Frequency (Hz): "))
-                w = float(input("Enter Wavelength (m): "))
-                print(f"Speed = {f*w} m/s")
+        if choice == '1':
+            print("\n[P3.1 Mass vs Weight]")
+            print("Definition: Weight is a force. It is the effect of a gravitational field on a mass.")
+            print("Syllabus Tip: Gravity (g) on Earth is constant at 10 m/s².")
+            m = float(input("Enter mass in kg to find weight: "))
+            print(f"Weight = {m * 10} Newtons (N)")
 
-        elif choice == 'P8':
-            m = tutor_quiz("Ohm's Law", "V = I x R", "Volts", "Voltage is current times resistance.", lambda x, y: x*y)
-            if m == '1':
-                i = float(input("Enter Current (A): "))
-                r = float(input("Enter Resistance (Ω): "))
-                print(f"Voltage = {i*r} V")
+        elif choice == '4':
+            print("\n[P6.1 Thermal Physics]")
+            print("Definition: Expansion is when particles move further apart due to increased kinetic energy.")
+                        print("Quiz: Does a gas expand more or less than a solid when heated?")
+            ans = input("Your answer (more/less): ").lower()
+            if 'more' in ans: print("✅ Correct! Gases expand the most.")
 
-        elif choice == 'X': break
+        elif choice == '6':
+            print("\n[P12.0 Digital Electronics]")
+            print("Logic Gate: AND Gate")
+            print("Rule: The output is HIGH (1) only if BOTH inputs are HIGH (1).")
+                        in1 = input("Input A (0 or 1): ")
+            in2 = input("Input B (0 or 1): ")
+            out = "1" if in1=="1" and in2=="1" else "0"
+            print(f"The AND gate output is: {out}")
 
-if __name__ == "__main__":
-    main_menu()
+        elif choice == 'X':
+            break
