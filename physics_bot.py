@@ -1,42 +1,42 @@
-# FundzaSiveAI - EGCSE Physics FULL MASTER (P1-P13)
-import random
+# FundzaSiveAI - EGCSE Physics Master Tutor
+import math
 
-def physics_tutor():
+def general_physics_p1():
+    print("\n--- 📖 TUTOR: SECTION P1.0 (DENSITY) ---")
+    print("DEFINITION: Density is the mass per unit volume of a substance.")
+    print("SYLLABUS TIP: If an object is less dense than a liquid, it will float!")
+    
+    
+    choice = input("\nDo you want to (1) Calculate or (2) See Syllabus Tip? ")
+    if choice == '1':
+        m = float(input("Enter Mass (kg): "))
+        v = float(input("Enter Volume (m³): "))
+        ans = m / v
+        print(f"Result: The Density is {ans} kg/m³")
+    else:
+        print("Tip: Units for density are kg/m³ or g/cm³.")
+
+def electricity_p8():
+    print("\n--- 📖 TUTOR: SECTION P8.0 (OHM'S LAW) ---")
+    print("DEFINITION: The current through a conductor is proportional to the voltage.")
+    print("FORMULA: V = I × R")
+    
+    
+    v = float(input("Enter Voltage (V): "))
+    r = float(input("Enter Resistance (Ω): "))
+    print(f"Result: The Current (I) is {v/r} Amperes (A)")
+
+def main():
     while True:
-        print("\n--- 🏫 EGCSE PHYSICS MASTER TUTOR ---")
-        print("1. P1-P3: General Physics (Density/Speed/Force)")
-        print("2. P4: Work, Energy & Power")
-        print("3. P5: Waves & Light")
-        print("4. P6: Thermal Physics (Heat)")
-        print("5. P8-P10: Electricity & Circuits")
-        print("6. P12: Digital Electronics (Logic Gates)")
-        print("7. P13: Transformers")
+        print("\n--- 🏫 FUNDZASIVE AI: PHYSICS TUTOR ---")
+        print("1. Density (P1.0)")
+        print("2. Electricity (P8.0)")
         print("X. Exit")
+        
+        choice = input("\nSelect a topic to learn: ")
+        if choice == '1': general_physics_p1()
+        elif choice == '2': electricity_p8()
+        elif choice == 'X': break
 
-        choice = input("\nSelect Syllabus Section: ").upper()
-
-        if choice == '1':
-            print("\n[P3.1 Mass vs Weight]")
-            print("Definition: Weight is a force. It is the effect of a gravitational field on a mass.")
-            print("Syllabus Tip: Gravity (g) on Earth is constant at 10 m/s².")
-            m = float(input("Enter mass in kg to find weight: "))
-            print(f"Weight = {m * 10} Newtons (N)")
-
-        elif choice == '4':
-            print("\n[P6.1 Thermal Physics]")
-            print("Definition: Expansion is when particles move further apart due to increased kinetic energy.")
-                        print("Quiz: Does a gas expand more or less than a solid when heated?")
-            ans = input("Your answer (more/less): ").lower()
-            if 'more' in ans: print("✅ Correct! Gases expand the most.")
-
-        elif choice == '6':
-            print("\n[P12.0 Digital Electronics]")
-            print("Logic Gate: AND Gate")
-            print("Rule: The output is HIGH (1) only if BOTH inputs are HIGH (1).")
-                        in1 = input("Input A (0 or 1): ")
-            in2 = input("Input B (0 or 1): ")
-            out = "1" if in1=="1" and in2=="1" else "0"
-            print(f"The AND gate output is: {out}")
-
-        elif choice == 'X':
-            break
+if __name__ == "__main__":
+    main()
