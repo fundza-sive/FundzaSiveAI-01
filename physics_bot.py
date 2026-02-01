@@ -1,42 +1,195 @@
 # FundzaSiveAI - EGCSE Physics Master Tutor
 import math
 
-def general_physics_p1():
-    print("\n--- 📖 TUTOR: SECTION P1.0 (DENSITY) ---")
+def physics_p1():
+    print("\n--- 📖 TUTOR: SECTION P1.0 (INTRODUCTION TO PHYSICS - DENSITY) ---")
     print("DEFINITION: Density is the mass per unit volume of a substance.")
     print("SYLLABUS TIP: If an object is less dense than a liquid, it will float!")
     
+    # Quiz to check understanding
+    print("\n--- ❓ QUIZ TIME: Let's see if you understand! ---")
+    print("Question: What is the formula for density?")
+    print("A) Density = Volume / Mass")
+    print("B) Density = Mass / Volume")
+    print("C) Density = Mass * Volume")
     
-    choice = input("\nDo you want to (1) Calculate or (2) See Syllabus Tip? ")
-    if choice == '1':
-        m = float(input("Enter Mass (kg): "))
-        v = float(input("Enter Volume (m³): "))
-        ans = m / v
-        print(f"Result: The Density is {ans} kg/m³")
+    answer = input("Enter your choice (A, B, or C): ").upper()
+    if answer == 'B':
+        print("Great job! That's correct. Density = Mass / Volume.")
     else:
+        print("Oops, that's not quite right. Let me explain gently:")
+        print("Step 1: Density measures how much mass is packed into a given volume.")
+        print("Step 2: So, it's mass divided by volume, not the other way around or multiplied.")
+        print("Correct answer: B) Density = Mass / Volume")
+    
+    # Proceed to calculation if desired
+    choice = input("\nDo you want to (1) Calculate density or (2) See another Syllabus Tip? Or (X) Back to menu: ").upper()
+    if choice == '1':
+        try:
+            m = float(input("Enter Mass (kg): "))
+            v = float(input("Enter Volume (m³): "))
+            if v == 0:
+                print("Volume can't be zero! Let's try again.")
+                return
+            ans = m / v
+            print(f"Result: The Density is {ans} kg/m³")
+        except ValueError:
+            print("Please enter valid numbers. Let's try again next time.")
+    elif choice == '2':
         print("Tip: Units for density are kg/m³ or g/cm³.")
 
-def electricity_p8():
-    print("\n--- 📖 TUTOR: SECTION P8.0 (OHM'S LAW) ---")
-    print("DEFINITION: The current through a conductor is proportional to the voltage.")
+def physics_p2():
+    print("\n--- 📖 TUTOR: SECTION P2.0 (SPEED, VELOCITY AND ACCELERATION) ---")
+    print("DEFINITION: Speed is the distance traveled per unit time. Velocity is speed in a given direction. Acceleration is the change in velocity per unit time.")
+    print("SYLLABUS TIP: Acceleration due to gravity near Earth is constant at 10 m/s².")
+    
+    # Quiz to check understanding
+    print("\n--- ❓ QUIZ TIME: Let's see if you understand! ---")
+    print("Question: What is the difference between speed and velocity?")
+    print("A) Speed is a vector, velocity is scalar")
+    print("B) Speed is scalar, velocity is a vector")
+    print("C) They are the same")
+    
+    answer = input("Enter your choice (A, B, or C): ").upper()
+    if answer == 'B':
+        print("Great job! That's correct. Speed has magnitude only, velocity has magnitude and direction.")
+    else:
+        print("Not quite. Let me correct you step by step:")
+        print("Step 1: Scalar quantities have only magnitude.")
+        print("Step 2: Vector quantities have magnitude and direction.")
+        print("Step 3: Speed is how fast, velocity is how fast and in which direction.")
+        print("Correct answer: B) Speed is scalar, velocity is a vector")
+    
+    # Proceed to calculation
+    choice = input("\nDo you want to (1) Calculate speed or (2) Calculate acceleration? Or (X) Back to menu: ").upper()
+    if choice == '1':
+        try:
+            d = float(input("Enter Distance (m): "))
+            t = float(input("Enter Time (s): "))
+            if t == 0:
+                print("Time can't be zero! Let's try again.")
+                return
+            ans = d / t
+            print(f"Result: The Speed is {ans} m/s")
+        except ValueError:
+            print("Please enter valid numbers.")
+    elif choice == '2':
+        try:
+            v_final = float(input("Enter Final Velocity (m/s): "))
+            v_initial = float(input("Enter Initial Velocity (m/s): "))
+            t = float(input("Enter Time (s): "))
+            if t == 0:
+                print("Time can't be zero! Let's try again.")
+                return
+            ans = (v_final - v_initial) / t
+            print(f"Result: The Acceleration is {ans} m/s²")
+        except ValueError:
+            print("Please enter valid numbers.")
+
+def physics_p8():
+    print("\n--- 📖 TUTOR: SECTION P8.0 (ELECTRICITY - OHM'S LAW) ---")
+    print("DEFINITION: The current through a conductor is proportional to the voltage across it, provided the temperature remains constant.")
     print("FORMULA: V = I × R")
     
+    # Quiz to check understanding
+    print("\n--- ❓ QUIZ TIME: Let's see if you understand! ---")
+    print("Question: If voltage increases and resistance stays the same, what happens to current?")
+    print("A) Current decreases")
+    print("B) Current increases")
+    print("C) Current stays the same")
     
-    v = float(input("Enter Voltage (V): "))
-    r = float(input("Enter Resistance (Ω): "))
-    print(f"Result: The Current (I) is {v/r} Amperes (A)")
+    answer = input("Enter your choice (A, B, or C): ").upper()
+    if answer == 'B':
+        print("Excellent! That's correct. Since V = I × R, if V increases and R is constant, I must increase.")
+    else:
+        print("Not quite. Let me correct you step by step:")
+        print("Step 1: Ohm's Law states V = I × R.")
+        print("Step 2: Solving for I, we get I = V / R.")
+        print("Step 3: If V goes up and R doesn't change, I goes up too.")
+        print("Correct answer: B) Current increases")
+    
+    # Proceed to calculation
+    choice = input("\nDo you want to (1) Calculate current or (X) Back to menu: ").upper()
+    if choice == '1':
+        try:
+            v = float(input("Enter Voltage (V): "))
+            r = float(input("Enter Resistance (Ω): "))
+            if r == 0:
+                print("Resistance can't be zero! That would cause infinite current. Let's try again.")
+                return
+            ans = v / r
+            print(f"Result: The Current (I) is {ans} Amperes (A)")
+        except ValueError:
+            print("Please enter valid numbers. Let's try again next time.")
+
+# Add more functions for other sections similarly...
+# For example:
+def physics_p3():
+    print("\n--- 📖 TUTOR: SECTION P3.0 (MASS AND FORCE) ---")
+    print("DEFINITION: Mass is the amount of matter in a body. Force is a push or pull that can change motion.")
+    print("SYLLABUS TIP: Weight = mass × gravity (w = mg).")
+    
+    # Quiz
+    print("\n--- ❓ QUIZ TIME: Let's see if you understand! ---")
+    print("Question: What is the relationship between mass and weight?")
+    print("A) They are the same")
+    print("B) Weight is mass times gravity")
+    print("C) Mass is weight times gravity")
+    
+    answer = input("Enter your choice (A, B, or C): ").upper()
+    if answer == 'B':
+        print("Correct! Weight is a force due to gravity on mass.")
+    else:
+        print("Let's clarify:")
+        print("Step 1: Mass is invariant, measures inertia.")
+        print("Step 2: Weight is mg, where g is gravitational acceleration.")
+        print("Correct: B)")
+    
+    # Calculation
+    choice = input("\nDo you want to (1) Calculate weight or (X) Back to menu: ").upper()
+    if choice == '1':
+        try:
+            m = float(input("Enter Mass (kg): "))
+            g = 10  # As per syllabus
+            ans = m * g
+            print(f"Result: The Weight is {ans} N")
+        except ValueError:
+            print("Invalid input.")
 
 def main():
     while True:
         print("\n--- 🏫 FUNDZASIVE AI: PHYSICS TUTOR ---")
-        print("1. Density (P1.0)")
-        print("2. Electricity (P8.0)")
+        print("1. Introduction to Physics - Density (P1.0)")
+        print("2. Speed, Velocity and Acceleration (P2.0)")
+        print("3. Mass and Force (P3.0)")
+        print("4. Work, Energy and Power (P4.0)")
+        print("5. Waves (P5.0)")
+        print("6. Thermal Physics (P6.0)")
+        print("7. Electrostatics (P7.0)")
+        print("8. Electricity - Ohm's Law (P8.0)")
+        print("9. Electric Circuits (P9.0)")
+        print("10. Practical Electricity (P10.0)")
+        print("11. Magnetism (P11.0)")
+        print("12. Digital Electronics (P12.0)")
+        print("13. Electromagnetic Effects (P13.0)")
+        print("14. Atomic Physics (P14.0)")
+        print("15. LED Monitors (P15.0)")
         print("X. Exit")
         
-        choice = input("\nSelect a topic to learn: ")
-        if choice == '1': general_physics_p1()
-        elif choice == '2': electricity_p8()
-        elif choice == 'X': break
+        choice = input("\nSelect a topic to learn: ").upper()
+        if choice == '1':
+            physics_p1()
+        elif choice == '2':
+            physics_p2()
+        elif choice == '3':
+            physics_p3()
+        elif choice == '8':
+            physics_p8()
+        # Add elif for other sections as you implement them
+        elif choice == 'X':
+            break
+        else:
+            print("Invalid choice or section not yet implemented. Please select an available topic.")
 
 if __name__ == "__main__":
     main()
