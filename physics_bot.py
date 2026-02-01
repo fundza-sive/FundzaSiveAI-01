@@ -48,3 +48,17 @@ def main_menu():
 
 if __name__ == "__main__":
     main_menu()
+def main_menu():
+    while True:
+        print("\n--- EGCSE PHYSICS STUDY BOT ---")
+        print("A. General Physics (P1-P3)")
+        print("B. Work, Energy & Power (P4)")
+        print("X. Exit")
+        
+        choice = input("\nSelect Syllabus Section: ").upper()
+        if choice == 'A': general_physics_p1_p3()
+        elif choice == 'B': energy_work_power_p4()
+        elif choice == 'X': break
+
+if __name__ == "__main__":
+    main_menu()
